@@ -4,8 +4,6 @@ Spacetraders SDK is a Java API Wrapper for [SpaceTraders.io](https://spacetrader
 
 The SpaceTraders API and this SDK is still in development and subject to frequent breaking!
 
-Release version: `1.0.0`
-
 ## Installation
 To get started with using this package, you need maven.
 
@@ -14,7 +12,7 @@ Inside your pom.xml
 <dependency>
     <groupId>dk.magnusjensen</groupId>
     <artifactId>spacetraders-sdk</artifactId>
-    <version>${RELEASE_VERSION}</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
