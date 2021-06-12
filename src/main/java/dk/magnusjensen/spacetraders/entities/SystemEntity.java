@@ -96,6 +96,19 @@ public class SystemEntity {
 		return locations;
 	}
 
+	public ArrayList<GameFlightPlanEntity> getActiveFlightPlans(String token) throws Exception {
+		JsonNode flightPlansNode = ApiCaller.GET("systems/:systemSymbol/flight-plans", token, new ArrayList<>(List.of(this.getSymbol()))).get("flightPlans");
+		ArrayList<GameFlightPlanEntity> flightPlans = new ArrayList<>();
+
+		if (flightPlansNode.isArray()) {
+			for (JsonNode flightPlanNode : flightPlansNode) {
+				flightPlans.add(SpaceTraders.getMapper().treeToValue(flightPlanNode, GameFlightPlanEntity.class));
+			}
+		}
+
+		return flightPlans;
+	}
+
 	public static class LocationShip {
 		private String shipId;
 		private String username;
