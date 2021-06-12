@@ -13,6 +13,9 @@ public class ErrorHandler {
 			case 404: {
 				throw new ObjectNotFoundException(404);
 			}
+			case 400: {
+				throw new FogOfWarException(400);
+			}
 		}
 	}
 }
