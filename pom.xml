@@ -6,7 +6,7 @@
 
     <groupId>dk.magnusjensen</groupId>
     <artifactId>spacetraders-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.0</version>
 
     <name>SpaceTraders SDK</name>
     <description>An API Wrapper for a RESTful API game called spacetraders.</description>

@@ -12,7 +12,7 @@ Inside your pom.xml
 <dependency>
     <groupId>dk.magnusjensen</groupId>
     <artifactId>spacetraders-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 
@@ -40,7 +40,8 @@ public class Main {
 ```
 
 ## Planned Features
-- [ ] Caching
+- [ ] Better Internal Exception Handling
+- [ ] Internal Caching
 - [ ] Event System
 - [ ] Ratelimiter
 
