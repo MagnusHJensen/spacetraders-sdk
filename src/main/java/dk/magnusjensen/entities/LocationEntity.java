@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import dk.magnusjensen.SpaceTraders;
 import dk.magnusjensen.api.ApiCaller;
 import dk.magnusjensen.entities.SystemEntity.LocationShip;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -123,5 +125,11 @@ public class LocationEntity {
 		}
 
 		return ships;
+	}
+
+	public MarketplaceEntity getMarketplace(String token) throws Exception {
+		JsonNode response = ApiCaller.GET("locations/:symbol/marketplace", token, new ArrayList<>(List.of(this.getSymbol())));
+
+		return SpaceTraders.getMapper().treeToValue(response.get("marketplace"), MarketplaceEntity.class);
 	}
 }
