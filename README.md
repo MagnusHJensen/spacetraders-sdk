@@ -4,9 +4,7 @@ Spacetraders SDK is a Java API Wrapper for [SpaceTraders.io](https://spacetrader
 
 The SpaceTraders API and this SDK is still in development and subject to frequent breaking!
 
-Release version: `none`
-
-Snapshot version: `1.0.0-SNAPSHOT`
+Release version: `1.0.0`
 
 ## Installation
 To get started with using this package, you need maven.
@@ -17,27 +15,6 @@ Inside your pom.xml
     <groupId>dk.magnusjensen</groupId>
     <artifactId>spacetraders-sdk</artifactId>
     <version>${RELEASE_VERSION}</version>
-</dependency>
-```
-
-Inside your pom.xml, if using snapshot version.
-
-```xml
-<repositories>
-    <repository>
-        <id>oss-sonatype</id>
-        <name>oss-sonatype</name>
-        <url> https://s01.oss.sonatype.org/content/repositories/snapshots/ </url>
-        <snapshots>
-            <enabled>true</enabled>
-        </snapshots>
-    </repository>
-</repositories>
-
-<dependency>
-    <groupId>dk.magnusjensen</groupId>
-    <artifactId>spacetraders-sdk</artifactId>
-    <version>${SNAPSHOT_VERSION}</version>
 </dependency>
 ```
 
