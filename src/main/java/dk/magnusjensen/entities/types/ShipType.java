@@ -28,6 +28,9 @@ public class ShipType {
 	@Nullable
 	private ArrayList<String> restrictedGoods;
 
+	@Nullable
+	private ArrayList<PurchaseLocation> purchaseLocations;
+
 	public ShipType() {
 	}
 
@@ -104,6 +107,15 @@ public class ShipType {
 		this.restrictedGoods = restrictedGoods;
 	}
 
+	@Nullable
+	public ArrayList<PurchaseLocation> getPurchaseLocations() {
+		return purchaseLocations;
+	}
+
+	public void setPurchaseLocations(@Nullable ArrayList<PurchaseLocation> purchaseLocations) {
+		this.purchaseLocations = purchaseLocations;
+	}
+
 	public static ArrayList<ShipType> getShips(String token) throws Exception {
 		ArrayList<ShipType> ships = new ArrayList<>();
 
@@ -126,5 +138,43 @@ public class ShipType {
 	@Override
 	public String toString() {
 		return this.getType();
+	}
+
+	public static class PurchaseLocation {
+		private String system;
+		private String location;
+		private int price;
+
+		public PurchaseLocation() {
+		}
+
+		public String getSystem() {
+			return system;
+		}
+
+		public void setSystem(String system) {
+			this.system = system;
+		}
+
+		public String getLocation() {
+			return location;
+		}
+
+		public void setLocation(String location) {
+			this.location = location;
+		}
+
+		public int getPrice() {
+			return price;
+		}
+
+		public void setPrice(int price) {
+			this.price = price;
+		}
+
+		@Override
+		public String toString() {
+			return "[" + this.getSystem() + " - " + this.getLocation() + "] Price: " + this.getPrice();
+		}
 	}
 }
