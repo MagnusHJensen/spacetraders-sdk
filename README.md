@@ -39,4 +39,12 @@ public class Main {
 
 ```
 
+## Planned Features
+- [ ] Caching
+- [ ] Event System
+- [ ] Ratelimiter
+
+---
+If you ever make something with the use of this wrapper, please hit me up on Discord `legenden#7526` and I will put a link to your project in here!
+
 
