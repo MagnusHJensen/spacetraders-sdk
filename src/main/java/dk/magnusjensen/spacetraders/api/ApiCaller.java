@@ -1,16 +1,13 @@
-package dk.magnusjensen.api;
+package dk.magnusjensen.spacetraders_sdk.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import dk.magnusjensen.SpaceTraders;
-import dk.magnusjensen.errors.ErrorHandler;
-import dk.magnusjensen.errors.TokenNotSetException;
+import dk.magnusjensen.spacetraders_sdk.SpaceTraders;
+import dk.magnusjensen.spacetraders_sdk.errors.ErrorHandler;
+import dk.magnusjensen.spacetraders_sdk.errors.TokenNotSetException;
 import okhttp3.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

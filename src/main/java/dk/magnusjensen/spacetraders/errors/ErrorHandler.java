@@ -1,4 +1,4 @@
-package dk.magnusjensen.errors;
+package dk.magnusjensen.spacetraders_sdk.errors;
 
 import com.fasterxml.jackson.databind.JsonNode;
 

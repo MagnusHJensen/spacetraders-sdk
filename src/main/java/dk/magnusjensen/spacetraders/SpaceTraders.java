@@ -1,9 +1,9 @@
-package dk.magnusjensen;
+package dk.magnusjensen.spacetraders_sdk;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dk.magnusjensen.api.ApiCaller;
-import dk.magnusjensen.entities.AccountEntity;
+import dk.magnusjensen.spacetraders_sdk.api.ApiCaller;
+import dk.magnusjensen.spacetraders_sdk.entities.AccountEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;

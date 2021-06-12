@@ -1,4 +1,4 @@
-package dk.magnusjensen.errors;
+package dk.magnusjensen.spacetraders_sdk.errors;
 
 public class InvalidTokenException extends Exception {
 	public InvalidTokenException(int errorCode) {

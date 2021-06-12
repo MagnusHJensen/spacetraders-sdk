@@ -1,4 +1,4 @@
-package dk.magnusjensen.errors;
+package dk.magnusjensen.spacetraders_sdk.errors;
 
 public class FogOfWarException extends Exception {
 	public FogOfWarException(int code) {

@@ -1,9 +1,8 @@
-package dk.magnusjensen.entities;
+package dk.magnusjensen.spacetraders_sdk.entities;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import dk.magnusjensen.SpaceTraders;
-import dk.magnusjensen.api.ApiCaller;
+import dk.magnusjensen.spacetraders_sdk.api.ApiCaller;
 
 import java.util.ArrayList;
 
