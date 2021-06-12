@@ -2,7 +2,7 @@ package dk.magnusjensen.spacetraders.entities.types;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.JsonNode;
-import dk.magnusjensen.SpaceTraders;
+import dk.magnusjensen.spacetraders.SpaceTraders;
 import dk.magnusjensen.spacetraders.api.ApiCaller;
 import dk.magnusjensen.spacetraders.entities.ShipEntity;
 import okhttp3.MediaType;
