@@ -82,6 +82,20 @@ public class SystemEntity {
 		return ships;
 	}
 
+	public ArrayList<LocationEntity> getSystemLocations(String token) throws Exception {
+		ArrayList<LocationEntity> locations = new ArrayList<>();
+
+		JsonNode locationsNode = ApiCaller.GET("systems/:symbol/locations", token, new ArrayList<>(List.of(this.getSymbol()))).get("locations");
+
+		if (locationsNode.isArray()) {
+			for (JsonNode locationNode : locationsNode) {
+				locations.add(SpaceTraders.getMapper().treeToValue(locationNode, LocationEntity.class));
+			}
+		}
+
+		return locations;
+	}
+
 	public static class LocationShip {
 		private String shipId;
 		private String username;
