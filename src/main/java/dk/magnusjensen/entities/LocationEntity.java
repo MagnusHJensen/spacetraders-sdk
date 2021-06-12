@@ -3,6 +3,7 @@ package dk.magnusjensen.entities;
 import com.fasterxml.jackson.databind.JsonNode;
 import dk.magnusjensen.SpaceTraders;
 import dk.magnusjensen.api.ApiCaller;
+import dk.magnusjensen.entities.SystemEntity.LocationShip;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -108,5 +109,19 @@ public class LocationEntity {
 	public static LocationEntity getLocationInfo(String token, String symbol) throws Exception {
 		JsonNode locationNode = ApiCaller.GET("locations/:locationSymbol/", token, new ArrayList<>(List.of(symbol))).get("location");
 		return SpaceTraders.getMapper().treeToValue(locationNode, LocationEntity.class);
+	}
+
+	public ArrayList<LocationShip> getShipsAtLocation(String token) throws Exception {
+		ArrayList<LocationShip> ships = new ArrayList<>();
+
+		JsonNode shipsNode = ApiCaller.GET("locations/:symbol/ships", token, new ArrayList<>(List.of(this.getSymbol()))).get("ships");
+
+		if (shipsNode.isArray()) {
+			for (JsonNode shipNode : shipsNode) {
+				ships.add(SpaceTraders.getMapper().treeToValue(shipNode, LocationShip.class));
+			}
+		}
+
+		return ships;
 	}
 }
