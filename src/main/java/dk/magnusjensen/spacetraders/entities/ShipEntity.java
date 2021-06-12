@@ -149,5 +149,19 @@ public class ShipEntity {
 		return messageNode.asText();
 	}
 
+	public UserFlightPlanEntity createFlightPlan(String token, String toLocation) throws Exception {
+		JsonNode flightPlan = ApiCaller.POST("my/flight-plans", token, null, RequestBody.create("{\"shipId\":\"" + this.getId() + "\", \"destination\":\"" + toLocation + "\"}",
+				MediaType.parse("application/json"))).get("flightPlan");
+
+		return SpaceTraders.getMapper().treeToValue(flightPlan, UserFlightPlanEntity.class);
+	}
+
+	public UserFlightPlanEntity warpJump(String token) throws Exception {
+		JsonNode flightPlan = ApiCaller.POST("my/warp-jumps", token, null, RequestBody.create("{\"shipId\":\"" + this.getId() + "\"}",
+				MediaType.parse("application/json"))).get("flightPlan");
+
+		return SpaceTraders.getMapper().treeToValue(flightPlan, UserFlightPlanEntity.class);
+	}
+
 
 }
