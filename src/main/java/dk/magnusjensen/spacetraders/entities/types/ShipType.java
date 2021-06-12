@@ -1,10 +1,10 @@
-package dk.magnusjensen.spacetraders_sdk.entities.types;
+package dk.magnusjensen.spacetraders.entities.types;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.JsonNode;
 import dk.magnusjensen.SpaceTraders;
-import dk.magnusjensen.spacetraders_sdk.api.ApiCaller;
-import dk.magnusjensen.spacetraders_sdk.entities.ShipEntity;
+import dk.magnusjensen.spacetraders.api.ApiCaller;
+import dk.magnusjensen.spacetraders.entities.ShipEntity;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import org.jetbrains.annotations.Nullable;

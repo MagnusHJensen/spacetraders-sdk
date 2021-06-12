@@ -1,8 +1,8 @@
-package dk.magnusjensen.spacetraders_sdk.entities;
+package dk.magnusjensen.spacetraders.entities;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import dk.magnusjensen.SpaceTraders;
-import dk.magnusjensen.spacetraders_sdk.api.ApiCaller;
+import dk.magnusjensen.spacetraders.api.ApiCaller;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import org.jetbrains.annotations.Nullable;

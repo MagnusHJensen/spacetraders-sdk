@@ -1,10 +1,9 @@
-package dk.magnusjensen.spacetraders_sdk.entities.types;
+package dk.magnusjensen.spacetraders.entities.types;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import dk.magnusjensen.SpaceTraders;
-import dk.magnusjensen.spacetraders_sdk.api.ApiCaller;
-import dk.magnusjensen.spacetraders_sdk.entities.AccountEntity;
-import dk.magnusjensen.spacetraders_sdk.entities.LoanEntity;
+import dk.magnusjensen.spacetraders.api.ApiCaller;
+import dk.magnusjensen.spacetraders.entities.LoanEntity;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 

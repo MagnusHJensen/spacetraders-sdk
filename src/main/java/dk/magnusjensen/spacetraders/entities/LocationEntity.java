@@ -1,9 +1,9 @@
-package dk.magnusjensen.spacetraders_sdk.entities;
+package dk.magnusjensen.spacetraders.entities;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import dk.magnusjensen.SpaceTraders;
-import dk.magnusjensen.spacetraders_sdk.api.ApiCaller;
-import dk.magnusjensen.spacetraders_sdk.entities.SystemEntity.LocationShip;
+import dk.magnusjensen.spacetraders.api.ApiCaller;
+import dk.magnusjensen.spacetraders.entities.SystemEntity.LocationShip;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;

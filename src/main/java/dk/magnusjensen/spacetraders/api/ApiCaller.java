@@ -1,9 +1,8 @@
-package dk.magnusjensen.spacetraders_sdk.api;
+package dk.magnusjensen.spacetraders.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import dk.magnusjensen.spacetraders_sdk.SpaceTraders;
-import dk.magnusjensen.spacetraders_sdk.errors.ErrorHandler;
-import dk.magnusjensen.spacetraders_sdk.errors.TokenNotSetException;
+import dk.magnusjensen.spacetraders.SpaceTraders;
+import dk.magnusjensen.spacetraders.errors.ErrorHandler;
 import okhttp3.*;
 
 import java.io.IOException;

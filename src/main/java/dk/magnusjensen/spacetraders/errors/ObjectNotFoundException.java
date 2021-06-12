@@ -1,4 +1,4 @@
-package dk.magnusjensen.spacetraders_sdk.errors;
+package dk.magnusjensen.spacetraders.errors;
 
 public class ObjectNotFoundException extends Exception {
 	public ObjectNotFoundException(int code) {

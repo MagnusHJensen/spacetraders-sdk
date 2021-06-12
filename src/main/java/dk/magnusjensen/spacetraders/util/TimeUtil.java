@@ -1,4 +1,4 @@
-package dk.magnusjensen.spacetraders_sdk.util;
+package dk.magnusjensen.spacetraders.util;
 
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
