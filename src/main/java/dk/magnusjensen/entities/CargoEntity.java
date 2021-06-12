@@ -51,7 +51,12 @@ public class CargoEntity {
 	}
 
 	/**
+	 * @param token String containing your game token.
+	 * @param quantity The quantity to transfer.
+	 * @param fromShipId The ship id of the ship where you transfer cargo from.
+	 * @param toShipId The ship id of the ship where you transfer cargo to.
 	 * @return Returns an arraylist consisting of the fromShip (index 0) and the toShip (index 1)
+	 * @throws Exception If the API call fails.
 	 */
 	public ArrayList<ShipEntity> transfer(String token, int quantity, String fromShipId, String toShipId) throws Exception {
 		JsonNode response = ApiCaller.POST("my/ships/:fromShipId/transfer", token,

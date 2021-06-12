@@ -122,8 +122,12 @@ public class StructureEntity {
 	}
 
 	/**
-	 *
+	 * @param token Game token.
+	 * @param shipid The ship id of the ship you transfer cargo from.
+	 * @param good The name of the good, you want to deposit.
+	 * @param quantity The amount of good to deposit.
 	 * @return Arraylist containg 3 arraylists. The first holding 1 entry being the cargoEntity, representing the transfer. The second one being the ship's cargo, after the transfer, and the third being the Structures inventory after the transfer.
+	 * @throws Exception If the API call fails.
 	 */
 	public ArrayList<ArrayList<CargoEntity>> depositCargo(String token, String shipid, String good, int quantity) throws Exception {
 		ArrayList<CargoEntity> transfer = new ArrayList<>();
