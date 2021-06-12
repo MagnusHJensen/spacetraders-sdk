@@ -6,7 +6,28 @@
 
     <groupId>dk.magnusjensen</groupId>
     <artifactId>spacetraders-sdk</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
+
+    <name>SpaceTraders SDK</name>
+    <description>An API Wrapper for a RESTful API game called spacetraders.</description>
+    <url>https://github.com/MagnusHJensen/spacetraders-sdk</url>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Magnus Jensen</name>
+            <email>magnushjensen.mail@gmail.com</email>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git://github.com/MagnusHJensen/spacetraders-sdk.git</connection>
+        <developerConnection>scm:git:git@github.com/MagnusHJensen/spacetraders-sdk.git</developerConnection>
+        <url>https//github.com/MagnusHJensen/spacetraders-sdk</url>
+    </scm>
 
     <distributionManagement>
         <snapshotRepository>
