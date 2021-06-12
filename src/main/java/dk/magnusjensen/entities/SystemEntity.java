@@ -3,8 +3,10 @@ package dk.magnusjensen.entities;
 import com.fasterxml.jackson.databind.JsonNode;
 import dk.magnusjensen.SpaceTraders;
 import dk.magnusjensen.api.ApiCaller;
+import dk.magnusjensen.entities.types.ShipType;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SystemEntity {
 	private String symbol;
@@ -50,5 +52,66 @@ public class SystemEntity {
 		}
 
 		return systems;
+	}
+
+	public ArrayList<ShipType> getShipListings(String token) throws Exception {
+		ArrayList<ShipType> ships = new ArrayList<>();
+
+		JsonNode shipsNode = ApiCaller.GET("systems/:symbol/ship-listings", token, new ArrayList<>(List.of(this.getSymbol()))).get("shipListings");
+
+		if (shipsNode.isArray()) {
+			for (JsonNode shipNode : shipsNode) {
+				ships.add(SpaceTraders.getMapper().treeToValue(shipNode, ShipType.class));
+			}
+		}
+
+		return ships;
+	}
+
+	public ArrayList<LocationShip> getShipsInSystem(String token) throws Exception {
+		ArrayList<LocationShip> ships = new ArrayList<>();
+
+		JsonNode shipsNode = ApiCaller.GET("systems/:symbol/ships", token, new ArrayList<>(List.of(this.getSymbol()))).get("ships");
+
+		if (shipsNode.isArray()) {
+			for (JsonNode shipNode : shipsNode) {
+				ships.add(SpaceTraders.getMapper().treeToValue(shipNode, LocationShip.class));
+			}
+		}
+
+		return ships;
+	}
+
+	public static class LocationShip {
+		private String shipId;
+		private String username;
+		private String shipType;
+
+		public LocationShip() {
+		}
+
+		public String getShipId() {
+			return shipId;
+		}
+
+		public void setShipId(String shipId) {
+			this.shipId = shipId;
+		}
+
+		public String getUsername() {
+			return username;
+		}
+
+		public void setUsername(String username) {
+			this.username = username;
+		}
+
+		public String getShipType() {
+			return shipType;
+		}
+
+		public void setShipType(String shipType) {
+			this.shipType = shipType;
+		}
 	}
 }
