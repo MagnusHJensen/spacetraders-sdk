@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import dk.magnusjensen.spacetraders.SpaceTraders;
 import dk.magnusjensen.spacetraders.api.ApiCaller;
 import dk.magnusjensen.spacetraders.events.PurchaseOrderEvent;
+import dk.magnusjensen.spacetraders.events.SellOrderEvent;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
@@ -37,12 +38,15 @@ public class MarketplaceEntity {
 
 	}
 
-	public MarketplaceOrder sell(String token, String shipid, String good, int quantity) throws Exception {
+	public void sell(String token, String shipid, String good, int quantity) throws Exception {
 		JsonNode response = ApiCaller.POST("my/sell-orders", token, null,
 				RequestBody.create("{\"shipId\": \"" + shipid + "\", \"good\": \"" + good +"\", \"quantity\": " + quantity + "}", MediaType.parse("application/json")));
 
-		return SpaceTraders.getMapper().treeToValue(response.get("order"), MarketplaceOrder.class);
+		int credits = response.get("credits").asInt();
+		MarketplaceOrder order = SpaceTraders.getMapper().treeToValue(response.get("order"), MarketplaceOrder.class);
+		ShipEntity ship = SpaceTraders.getMapper().treeToValue(response.get("ship"), ShipEntity.class);
 
+		SpaceTraders.getEventHandler().sellEventFired(new SellOrderEvent(credits, order, ship));
 	}
 
 	public static class MarketplaceGood {
