@@ -4,6 +4,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dk.magnusjensen.spacetraders.api.ApiCaller;
 import dk.magnusjensen.spacetraders.entities.AccountEntity;
+import dk.magnusjensen.spacetraders.events.EventHandler;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -12,6 +15,7 @@ import java.util.List;
 public class SpaceTraders {
 
 	private static ObjectMapper MAPPER = new ObjectMapper();
+	private static EventHandler eventHandler = new EventHandler();
 	private String username;
 	private String token;
 	private AccountEntity account;
@@ -25,7 +29,7 @@ public class SpaceTraders {
 	}
 
 	private void claimUsername(String username) throws Exception {
-		JsonNode response = ApiCaller.GET("users/:username/claim", null, new ArrayList<>(List.of(username)));
+		JsonNode response = ApiCaller.POST("users/:username/claim", null, new ArrayList<>(List.of(username)), RequestBody.create("", MediaType.parse("application/json")));
 		this.username = username;
 		this.token = response.get("token").asText();
 		this.account = AccountEntity.getInfo(this.token);
@@ -59,8 +63,9 @@ public class SpaceTraders {
 		return MAPPER;
 	}
 
-
-
+	public static EventHandler getEventHandler() {
+		return eventHandler;
+	}
 
 	public static class Builder {
 		private String username;
