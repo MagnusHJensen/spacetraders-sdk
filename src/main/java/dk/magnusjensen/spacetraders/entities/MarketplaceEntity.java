@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.JsonNode;
 import dk.magnusjensen.spacetraders.SpaceTraders;
 import dk.magnusjensen.spacetraders.api.ApiCaller;
+import dk.magnusjensen.spacetraders.events.PurchaseOrderEvent;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
@@ -24,11 +25,15 @@ public class MarketplaceEntity {
 		this.goods = goods;
 	}
 
-	public MarketplaceOrder buy(String token, String shipid, String good, int quantity) throws Exception {
+	public void buy(String token, String shipid, String good, int quantity) throws Exception {
 		JsonNode response = ApiCaller.POST("my/purchase-orders", token, null,
 				RequestBody.create("{\"shipId\": \"" + shipid + "\", \"good\": \"" + good +"\", \"quantity\": " + quantity + "}", MediaType.parse("application/json")));
 
-		return SpaceTraders.getMapper().treeToValue(response.get("order"), MarketplaceOrder.class);
+		int credits = response.get("credits").asInt();
+		MarketplaceOrder order = SpaceTraders.getMapper().treeToValue(response.get("order"), MarketplaceOrder.class);
+		ShipEntity ship = SpaceTraders.getMapper().treeToValue(response.get("ship"), ShipEntity.class);
+
+		SpaceTraders.getEventHandler().purchaseEventFired(new PurchaseOrderEvent(credits, order, ship));
 
 	}
 
